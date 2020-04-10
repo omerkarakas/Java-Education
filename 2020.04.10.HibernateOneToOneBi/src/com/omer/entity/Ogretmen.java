@@ -21,7 +21,7 @@ public class Ogretmen {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ogretmen_seq")
 	private int id;
 	
-	@OneToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name="ogretmen_detay_id")
 	private OgretmenDetay ogretmenDetay;
 		
@@ -80,6 +80,16 @@ public class Ogretmen {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+	}
+
+	public Ogretmen() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Ogretmen [id=" + id + ", ogretmenDetay=" + ogretmenDetay.getId()+ ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + "]";
 	}
 	
 	

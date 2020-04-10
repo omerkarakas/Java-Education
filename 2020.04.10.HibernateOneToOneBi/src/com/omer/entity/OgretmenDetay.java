@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,6 +18,9 @@ public class OgretmenDetay {
 	@SequenceGenerator(name="ogretmen_det_seq",sequenceName="seq_ogretmen_detay", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ogretmen_det_seq")
 	private int id;
+	
+	@OneToOne(mappedBy="ogretmenDetay")
+	private Ogretmen ogretmen;
 	
 	@Column(name="expertise")
 	private String expertise;
@@ -76,6 +80,24 @@ public class OgretmenDetay {
 		this.hobby = hobby;
 		this.website = website;
 		this.fbPage = fbPage;
+	}
+
+	public Ogretmen getOgretmen() {
+		return ogretmen;
+	}
+
+	public void setOgretmen(Ogretmen ogretmen) {
+		this.ogretmen = ogretmen;
+	}
+
+	public OgretmenDetay() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "OgretmenDetay [id=" + id + ", ogretmen=" + ogretmen.getId() + ", expertise=" + expertise + ", hobby=" + hobby
+				+ ", website=" + website + ", fbPage=" + fbPage + "]";
 	}
 	
 	

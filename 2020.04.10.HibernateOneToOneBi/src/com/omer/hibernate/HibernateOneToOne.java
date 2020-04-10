@@ -22,18 +22,20 @@ public class HibernateOneToOne {
 		//create session
 		Session session = sessionFactory.getCurrentSession();
 		
-		OgretmenDetay ogrDty = new OgretmenDetay("java", "sinema", "http://google4.com", "http://fb.me/omer");
 		
-		Ogretmen ogr = new Ogretmen(ogrDty,"Ömer","Karakaş","omerkarakas6@hotmail");
-
 		session.beginTransaction();
 		
-		//session.save(ogrDty);
-		session.save(ogr);
-					
+		OgretmenDetay ogrDty = 
+				session.get(OgretmenDetay.class, 1);
+		
+				
 		session.getTransaction().commit();
 		
 		session.close();
+
+		System.out.println(ogrDty);
+    	System.out.println(ogrDty.getOgretmen());
+
 	}
 
 }
