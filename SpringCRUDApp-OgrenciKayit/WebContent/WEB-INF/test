@@ -1,0 +1,6 @@
+		<form id="ogrenci" action="ogrenci-kaydet" method="POST">
+			<input id="id" name="id" type="hidden" value="0"/>
+			
+			
+		<form id="ogrenci" action="ogrenci-kaydet" method="POST">
+			<input id="id" name="id" type="hidden" value="3"/>			
