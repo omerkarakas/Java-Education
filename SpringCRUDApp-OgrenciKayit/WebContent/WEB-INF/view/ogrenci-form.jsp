@@ -35,6 +35,22 @@
 			</tr>
 
 			<tr>
+				<td><label>Mezuniyet Tarihi</label></td>
+				<td><frm:input  path="mezuniyetTarihi" type="date" /></td>
+			</tr>
+
+			<tr>
+				<td><label>Kurs</label></td>
+				<td><frm:select path="kurs.id">
+    				<frm:options items="${kurslar}"/>
+    			 </frm:select>
+
+			</td>
+			</tr>
+
+ 
+
+			<tr>
 				<td></td>
 				<td> <frm:button value="save" name="save">Kaydet</frm:button>  </td>
 			</tr>						

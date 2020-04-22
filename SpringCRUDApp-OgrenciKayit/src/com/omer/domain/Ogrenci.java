@@ -1,6 +1,7 @@
 package com.omer.domain;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.ManyToAny;
+
 
 @Entity
 @Table(name="OGRENCI")
@@ -35,6 +41,15 @@ public class Ogrenci {
 	
 	@Column(name="ogrenci_no")
 	private int ogrenciNo;
+
+	
+	@Column(name="mezuniyet_tarihi")
+	private Date mezuniyetTarihi;
+	
+	@OneToOne
+	@JoinColumn(name="kurs_id")
+	private Kurs kurs;
+	
 	
 	public int getId() {
 		return id;
@@ -77,6 +92,22 @@ public class Ogrenci {
 
 	public Ogrenci() {
 		super();
+	}
+
+	public Date getMezuniyetTarihi() {
+		return mezuniyetTarihi;
+	}
+
+	public void setMezuniyetTarihi(Date mezuniyetTarihi) {
+		this.mezuniyetTarihi = mezuniyetTarihi;
+	}
+
+	public Kurs getKurs() {
+		return kurs;
+	}
+
+	public void setKurs(Kurs kurs) {
+		this.kurs = kurs;
 	}
 
 	

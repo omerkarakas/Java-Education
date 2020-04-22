@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.omer.dao.OgrenciDAO;
+import com.omer.domain.Kurs;
 import com.omer.domain.Ogrenci;
 
 @Service
@@ -44,6 +45,13 @@ public class OgrenciServisiImpl implements OgrenciServisi {
 
 		ogrenciDAO.deleteOgrenci(ogrId);
 		
+	}
+
+	@Transactional
+	@Override
+	public List<Kurs> getKursList() {
+		// TODO Auto-generated method stub
+		return ogrenciDAO.getKursList();
 	}
 
 }

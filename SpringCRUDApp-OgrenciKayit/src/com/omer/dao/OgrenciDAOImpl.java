@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.omer.domain.Kurs;
 import com.omer.domain.Ogrenci;
 
 @Repository
@@ -58,5 +59,17 @@ public class OgrenciDAOImpl implements OgrenciDAO {
 		session.delete(ogr);
 		
 	}
+
+	@Override
+	public List<Kurs> getKursList() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<Kurs> query = session.createQuery("from Kurs",Kurs.class);
+		List<Kurs> resultList = query.getResultList();
+		
+		return resultList;
+	}
+	
 
 }

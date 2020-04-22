@@ -28,6 +28,8 @@
 			 		<th>İsim</th>
 			 		<th>Soyisim</th>
 			 		<th>Öğrenci No</th>
+			 		<th>Mezuniyet Tarihi</th>
+			 		<th>Kurs</th>
 			 		<th>İşlem</th>
 			 	</tr>
 		 	</thead>
@@ -47,6 +49,9 @@
 		 				<td>${ogrenci.isim}</td>
 		 				<td>${ogrenci.soyisim}</td>
 		 				<td>${ogrenci.ogrenciNo}</td>
+		 				<td>${ogrenci.mezuniyetTarihi}</td>
+		 				<td>${ogrenci.kurs.id}-${ogrenci.kurs.kursAdi}</td>
+		 				
 		 				<td>
 			 				 <button onclick="window.location.href='${updateLink}'" class="update-button">
 			 				 Güncelle</button>
